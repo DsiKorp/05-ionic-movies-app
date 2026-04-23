@@ -35,3 +35,40 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.rojo,
+.rojo .sc-ion-action-sheet-md {
+  color: red !important;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+ion-searchbar {
+  --box-shadow: none !important;
+}
+
+/* Popover desde el footer - posicionamiento hacia arriba */
+.popover-footer {
+  --offset-y: auto !important;
+  bottom: 60px !important; /* Ajusta según la altura del footer */
+}
+
+/* Altura máxima para popover con muchos items */
+ion-popover {
+  --height: auto;
+  --max-height: 400px;
+}
+
+.text-primary {
+  color: var(--ion-color-primary);
+}
+
+.article-source-name {
+  font-size: 12px;
+}
+
+.secondary {
+  color: red !important;
+}

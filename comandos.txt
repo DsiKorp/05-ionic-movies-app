@@ -1,0 +1,2 @@
+ionic start ionic-movies-app blank --type=angular --capacitor
+

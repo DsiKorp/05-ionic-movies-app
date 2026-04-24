@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,8 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss'],
   standalone: false,
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
 
-  constructor() {}
+  constructor(private moviesService: MoviesService) {}
+
+  ngOnInit(): void {
+    this.moviesService.getFeature().subscribe((data) => {
+      console.log(data);
+    });
+  }
 
 }

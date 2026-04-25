@@ -1,0 +1,28 @@
+swiper-slide.slide-mas {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.slide-mas {
+    height: 300px;
+}
+
+.btn-mas {
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --border-radius: 50%;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    width: 60px;
+    height: 60px;
+
+    &:hover {
+        --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}

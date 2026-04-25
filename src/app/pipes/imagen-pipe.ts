@@ -1,0 +1,24 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+const URL = environment.urlImg;
+
+@Pipe({
+  name: 'imagen',
+  standalone: false
+})
+export class ImagenPipe implements PipeTransform {
+
+  transform(img: string, size: string = 'w500'): string {
+
+    if (!img) {
+      return './assets/no-image-banner.jpg';
+    }
+
+    const imgUrl = `${URL}/${size}${img}`;
+    // console.log({imgUrl});
+    
+    return imgUrl;
+  }
+
+}

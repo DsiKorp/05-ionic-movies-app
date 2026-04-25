@@ -1,11 +1,17 @@
-<app-header title="Movies"></app-header>
+<!-- <app-header title="Movies"></app-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-grid title="New Movies"></app-grid>
+
+  <app-slideshow-backdrop [movies]="recentMovies"></app-slideshow-backdrop>
+
+  <app-grid title="Recent Movies"></app-grid>
+
+  <app-slideshow-poster [movies]="recentMovies"></app-slideshow-poster>
+
+  <app-grid title="Popular Movies"></app-grid>
+
+  <app-slideshow-pares [movies]="popularMovies"></app-slideshow-pares>
+
 </ion-content>

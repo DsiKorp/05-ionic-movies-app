@@ -1,0 +1,22 @@
+<swiper-container direction="horizontal" pager="ios" pagination="true" pagination-bullet-color="white"
+  pagination-bullet-active-color="black" slides-per-view="3.3" free-mode="true" space-between="-10">
+
+  <swiper-slide *ngFor="let pares of movies | pares">
+
+    <ion-row>
+      <ion-col size="12" *ngFor="let movie of pares">
+        <ion-card>
+          <img [src]="movie.poster_path | imagen" alt="movie.title" class="poster">
+        </ion-card>
+      </ion-col>  
+    </ion-row>
+
+  </swiper-slide>
+
+  <swiper-slide class="slide-mas">
+    <ion-button (click)="onClick()" class="btn-mas" shape="round" fill="solid" color="primary">
+      <ion-icon slot="icon-only" name="add" size="large"></ion-icon>
+    </ion-button>
+  </swiper-slide> 
+
+</swiper-container>

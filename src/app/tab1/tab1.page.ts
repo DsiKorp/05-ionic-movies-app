@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
+import { Movie, MovieResponse } from '../interfaces/MovieResponse';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 @Component({
   selector: 'app-tab1',
@@ -9,11 +13,20 @@ import { MoviesService } from '../services/movies.service';
 })
 export class Tab1Page implements OnInit {
 
+  recentMovies: Movie[] = [];
+  popularMovies: Movie[] = [];
+
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.moviesService.getFeature().subscribe((data) => {
+    this.moviesService.getFeature().subscribe((data: MovieResponse) => {
+     // console.log(data);
+      this.recentMovies = data.results;
+    });
+
+    this.moviesService.getPopular().subscribe((data: MovieResponse) => {
       console.log(data);
+      this.popularMovies = data.results;
     });
   }
 

@@ -1,0 +1,69 @@
+swiper-container {
+  height: 100%;
+  --swiper-pagination-color: white;
+  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: black;
+}
+
+// Slide containers
+.slide-1,
+.slide-2,
+.slide-3 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Slide backgrounds
+.slide-1 {
+  background-color: red;
+}
+
+.slide-2 {
+  background-color: blue;
+}
+
+.slide-3 {
+  background-color: green;
+}
+
+// Card styles
+ion-card {
+  height: 200px;
+  width: 300px;
+  overflow: unset;
+}
+
+// Image positioning
+.slide-image {
+  width: 100px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: -50px;
+}
+
+// Card content positioning
+ion-card-header,
+ion-card-content {
+  position: relative;
+  top: -50px;
+}
+
+// Avatar styles
+.avatar {
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+}

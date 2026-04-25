@@ -1,0 +1,18 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from 'src/app/interfaces/MovieResponse';
+
+@Component({
+  selector: 'app-slideshow-backdrop',
+  templateUrl: './slideshow-backdrop.component.html',
+  styleUrls: ['./slideshow-backdrop.component.scss'],
+  standalone: false,
+})
+export class SlideshowBackdropComponent  implements OnInit {
+
+  @Input() movies: Movie[] = [];
+
+  constructor() { }
+
+  ngOnInit() {}
+
+}

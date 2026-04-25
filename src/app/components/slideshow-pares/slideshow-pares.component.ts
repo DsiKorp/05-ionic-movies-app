@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from 'src/app/interfaces/MovieResponse';
 
 @Component({
@@ -10,6 +10,7 @@ import { Movie } from 'src/app/interfaces/MovieResponse';
 export class SlideshowParesComponent  implements OnInit {
 
   @Input() movies: Movie[] = [];
+  @Output() loadMore = new EventEmitter();
   
   constructor() { }
 
@@ -17,6 +18,7 @@ export class SlideshowParesComponent  implements OnInit {
 
   onClick() {
     console.log('Button clicked!');
+    this.loadMore.emit();
   }
 
 }

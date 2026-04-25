@@ -12,6 +12,7 @@ export class MoviesService {
 
   private apiKey = environment.apiKey;
   private urlApi = environment.urlApi;
+  private popularPage = 0;
   
   constructor(private http: HttpClient) {}
 
@@ -52,8 +53,10 @@ export class MoviesService {
   }
 
   getPopular(): Observable<MovieResponse> {
+    this.popularPage++;
     return this.executeQuery<MovieResponse>('/discover/movie', {
       sort_by: 'popularity.desc',
+      page: this.popularPage
     });
     }
   }

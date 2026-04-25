@@ -12,6 +12,6 @@
 
   <app-grid title="Popular Movies"></app-grid>
 
-  <app-slideshow-pares [movies]="popularMovies"></app-slideshow-pares>
+  <app-slideshow-pares [movies]="popularMovies" (loadMore)="onLoadMore()"></app-slideshow-pares>
 
 </ion-content>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { QueryParams } from '../interfaces';
 import { MovieResponse } from '../interfaces/MovieResponse';
+import { MovieDetail } from '../interfaces/MovieDetail';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class MoviesService {
   private apiKey = environment.apiKey;
   private urlApi = environment.urlApi;
   private popularPage = 0;
-  
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) { }
 
   private executeQuery<T>(endpoint: string, params: QueryParams = {}): Observable<T> {
     console.log('Petición HTTP realizada');
@@ -29,7 +30,7 @@ export class MoviesService {
   getFeature(): Observable<MovieResponse> {
 
     const today = new Date();
-    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate(); 
+    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
     const month = today.getMonth() + 1;
 
     let mesString;
@@ -40,8 +41,8 @@ export class MoviesService {
       mesString = month.toString();
     }
 
-      const startDate = `${today.getFullYear()}-${mesString}-01`;
-      const endDate = `${today.getFullYear()}-${mesString}-${lastDay}`;
+    const startDate = `${today.getFullYear()}-${mesString}-01`;
+    const endDate = `${today.getFullYear()}-${mesString}-${lastDay}`;
 
 
     return this.executeQuery<MovieResponse>('/discover/movie', {
@@ -58,6 +59,13 @@ export class MoviesService {
       sort_by: 'popularity.desc',
       page: this.popularPage
     });
-    }
   }
 
+  getMovieDetails(id: number): Observable<MovieDetail> {
+    return this.executeQuery<MovieDetail>(`/movie/${id}`);
+  }
+
+  getActors(id: number): Observable<any> {
+    return this.executeQuery(`/movie/${id}/credits`);
+  } 
+}

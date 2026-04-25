@@ -7,22 +7,25 @@ import { PipesModule } from '../pipes/pipes-module';
 import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.component';
 import { GridComponent } from './grid/grid.component';
 import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
   declarations: [
+    DetailComponent,
+    GridComponent,
     HeaderComponent,
     SlideshowBackdropComponent,
+    SlideshowParesComponent,
     SlideshowPosterComponent,
-    GridComponent,
-    SlideshowParesComponent
   ],
   exports: [
+    DetailComponent,
+    GridComponent,
     HeaderComponent,
     SlideshowBackdropComponent,
+    SlideshowParesComponent,
     SlideshowPosterComponent,
-    GridComponent,
-    SlideshowParesComponent
   ],
   imports: [
     CommonModule,

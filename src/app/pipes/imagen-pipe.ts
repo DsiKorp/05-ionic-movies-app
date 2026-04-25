@@ -9,7 +9,7 @@ const URL = environment.urlImg;
 })
 export class ImagenPipe implements PipeTransform {
 
-  transform(img: string, size: string = 'w500'): string {
+  transform(img: string | null, size: string = 'w500'): string {
 
     if (!img) {
       return './assets/no-image-banner.jpg';

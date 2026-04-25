@@ -9,7 +9,7 @@
   space-between="10">
 
   <swiper-slide *ngFor="let movie of movies">
-    <ion-card>
+    <ion-card (click)="showDetail(movie.id)">
       <img [src]="movie.poster_path | imagen" alt="movie.title" class="poster">
     </ion-card>
   </swiper-slide>

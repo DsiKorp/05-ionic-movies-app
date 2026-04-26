@@ -14,6 +14,7 @@ export class MoviesService {
   private apiKey = environment.apiKey;
   private urlApi = environment.urlApi;
   private popularPage = 0;
+  private language = 'en';
 
   constructor(private http: HttpClient) { }
 
@@ -48,8 +49,8 @@ export class MoviesService {
     return this.executeQuery<MovieResponse>('/discover/movie', {
       'primary_release_date.gte': startDate,
       'primary_release_date.lte': endDate,
-      language: 'en',
-      include_image_language: 'en'
+      language: this.language,
+      include_image_language: this.language
     });
   }
 
@@ -57,15 +58,29 @@ export class MoviesService {
     this.popularPage++;
     return this.executeQuery<MovieResponse>('/discover/movie', {
       sort_by: 'popularity.desc',
-      page: this.popularPage
+      page: this.popularPage,
+      language: this.language,
+      include_image_language: this.language
     });
   }
 
   getMovieDetails(id: number): Observable<MovieDetail> {
-    return this.executeQuery<MovieDetail>(`/movie/${id}`);
+    return this.executeQuery<MovieDetail>(`/movie/${id}`, {
+      language: this.language,
+      include_image_language: this.language
+    });
   }
 
   getActors(id: number): Observable<any> {
     return this.executeQuery(`/movie/${id}/credits`);
-  } 
+  }
+
+  searchMovie(searchText: string): Observable<MovieResponse> {
+    return this.executeQuery<MovieResponse>('/search/movie', {
+      query: searchText,
+      language: this.language,
+      include_image_language: this.language
+
+    });
+  }
 }

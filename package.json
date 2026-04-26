@@ -27,6 +27,8 @@
     "@capacitor/keyboard": "8.0.3",
     "@capacitor/status-bar": "8.0.2",
     "@ionic/angular": "^8.8.4",
+    "@ionic/storage": "^4.0.0",
+    "cordova-sqlite-storage": "^7.0.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "swiper": "^12.1.3",

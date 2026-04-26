@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
 import { MoviesService } from '../services/movies.service';
 import { Movie } from '../interfaces/MovieResponse';
+import { DetailComponent } from '../components/detail/detail.component';
 
 @Component({
   selector: 'app-tab2',
@@ -15,7 +18,11 @@ export class Tab2Page {
   ideas: string[] = ['Spiderman', 'Batman', 'Superman', 'Ironman', 'Capitan America', 'Thor', 'Hulk', 'Black Widow', 'Doctor Strange'];
   showSpinner: boolean = false;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(
+    private moviesService: MoviesService,
+    private modalCtrl: ModalController
+
+  ) { }
 
   searchMovie(event: any) {
     this.showSpinner = true;
@@ -41,6 +48,19 @@ export class Tab2Page {
       this.movies = response.results;
       this.showSpinner = false;
     });
+  }
+
+  async showDetails(id: number) {
+    console.log('Mostrar detalles de la película con ID:', id);
+    
+    const modal = await this.modalCtrl.create({
+      component: DetailComponent,
+      componentProps: {
+        id
+      }
+    });
+
+    modal.present();
   }
 
 }

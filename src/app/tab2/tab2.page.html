@@ -25,9 +25,9 @@
   </ion-list>
 
   <ion-grid fixed>
-    <ion-row>
+    <ion-row class="movie-row">
       <ion-col size="6" *ngFor="let movie of movies">
-        <ion-card>
+        <ion-card class="movie-card" (click)="showDetails(movie.id )">
           <img [src]="movie.poster_path | imagen" alt="movie.title" *ngIf="movie.poster_path">
           <ion-card-header>
             <ion-card-subtitle>{{ movie.release_date }}</ion-card-subtitle>

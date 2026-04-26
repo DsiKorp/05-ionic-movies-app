@@ -2,3 +2,13 @@ ion-searchbar {
 //   --background: transparent;
   padding-top: 15px;
 }
+
+.movie-row {
+  align-items: stretch;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

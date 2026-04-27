@@ -49,7 +49,7 @@ export class DetailComponent implements OnInit {
   }
 
   goBack() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss({ changed: true });
   }
 
   async addFavorite() {

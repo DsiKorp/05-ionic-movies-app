@@ -13,7 +13,7 @@
       <ion-row>
         <ion-col>{{ category.genre }}</ion-col>
       </ion-row>
-      <app-slideshow-poster-detail [movies]="category.movies"></app-slideshow-poster-detail>
+      <app-slideshow-poster-detail [movies]="category.movies" (modalClosed)="onModalClosed()"></app-slideshow-poster-detail>
     </ion-grid>
   </div>
 

@@ -39,4 +39,8 @@ export class Tab3Page {
       movies: movies.filter(movie => movie.genres.some(g => g.id === genre.id))
     }));
   }
+
+  onModalClosed() {
+    this.ionViewWillEnter();
+  }
 }

@@ -27,6 +27,11 @@ export class SlideshowPosterDetailComponent implements OnInit {
     });
 
     modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    if (data?.changed) {
+      this.modalClosed.emit();
+    }
   }
 
 }

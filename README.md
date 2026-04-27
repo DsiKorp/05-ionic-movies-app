@@ -113,7 +113,7 @@ La aplicación utiliza **The Movie Database (TMDb) API**. Para hacerla funcionar
    ```typescript
    export const environment = {
      production: false,
-     apiKey: 'abcd1234efgh5678ijkl9012mnop3456',
+     apiKey: 'apikey',
      urlApi: 'https://api.themoviedb.org/3',
      urlImg: 'https://image.tmdb.org/t/p'
    };

@@ -8,7 +8,7 @@
   free-mode="true"
   space-between="10">
 
-  <swiper-slide *ngFor="let movie of movies">
+  <swiper-slide *ngFor="let movie of movies | filtroImageMovie">
     <ion-card (click)="showDetail(movie.id)" model="md">
       <img [src]="movie.poster_path | imagen" alt="movie.title" class="poster">
     </ion-card>

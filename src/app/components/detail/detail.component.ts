@@ -3,6 +3,7 @@ import { MoviesService } from '../../services/movies.service';
 import { MovieDetail } from 'src/app/interfaces/MovieDetail';
 import { Actors, Cast } from 'src/app/interfaces/Actors';
 import { ModalController } from '@ionic/angular';
+import { DataLocalService } from 'src/app/services/data-local-service';
 
 @Component({
   selector: 'app-detail',
@@ -17,14 +18,18 @@ export class DetailComponent implements OnInit {
   actors: Cast[] = [];
   totalCharacters: number = 150;
   showReadMore: boolean = true;
+  star: string = 'star-outline';
 
   constructor(
     private moviesService: MoviesService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private dataLocalService: DataLocalService
   ) { }
 
   ngOnInit() {
     console.log(this.id);
+
+    this.checkFavorite();
 
     this.moviesService.getMovieDetails(this.id).subscribe((movie: MovieDetail) => {
       console.log(movie);
@@ -47,8 +52,15 @@ export class DetailComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  adFavorite() {
+  async addFavorite() {
     console.log('Poner en favoritos');
+    await this.dataLocalService.saveMovie(this.movieDetail);
+    this.checkFavorite();
+  }
+
+  async checkFavorite() {
+    const existe = await this.dataLocalService.existMovie(this.id);
+    this.star = existe ? 'star' : 'star-outline';
   }
 
 }

@@ -1,0 +1,13 @@
+ion-card {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.poster {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  max-height: 200px;
+  object-fit: cover;
+}

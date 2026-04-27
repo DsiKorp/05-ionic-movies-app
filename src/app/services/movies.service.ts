@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { QueryParams } from '../interfaces';
 import { MovieResponse } from '../interfaces/MovieResponse';
-import { MovieDetail } from '../interfaces/MovieDetail';
+import { Genre, MovieDetail } from '../interfaces/MovieDetail';
+import { Genres } from '../interfaces/Genres';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class MoviesService {
   private urlApi = environment.urlApi;
   private popularPage = 0;
   private language = 'en';
+  private genres: Genre[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +29,10 @@ export class MoviesService {
       }
     })
   }
+
+  // getGenres(): Genre[] {
+  //   return this.genres;
+  // }
 
   getFeature(): Observable<MovieResponse> {
 
@@ -81,6 +87,25 @@ export class MoviesService {
       language: this.language,
       include_image_language: this.language
 
+    });
+  }
+
+  loadGenres(): Promise<Genre[]> {
+
+    return new Promise((resolve) => {
+
+      if (this.genres.length > 0) {
+        resolve(this.genres);
+        return;
+      }
+
+      this.executeQuery<Genres>('/genre/movie/list', {
+        language: this.language
+      }).subscribe((genres: Genres) => {
+        this.genres = genres.genres;
+        //console.log(this.genres);
+        resolve(this.genres);
+      });
     });
   }
 }

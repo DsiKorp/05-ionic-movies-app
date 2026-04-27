@@ -8,6 +8,7 @@ import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.co
 import { GridComponent } from './grid/grid.component';
 import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
 import { DetailComponent } from './detail/detail.component';
+import { SlideshowPosterDetailComponent } from './slideshow-poster-detail/slideshow-poster-detail.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DetailComponent } from './detail/detail.component';
     SlideshowBackdropComponent,
     SlideshowParesComponent,
     SlideshowPosterComponent,
+    SlideshowPosterDetailComponent,
   ],
   exports: [
     DetailComponent,
@@ -26,6 +28,7 @@ import { DetailComponent } from './detail/detail.component';
     SlideshowBackdropComponent,
     SlideshowParesComponent,
     SlideshowPosterComponent,
+    SlideshowPosterDetailComponent,
   ],
   imports: [
     CommonModule,

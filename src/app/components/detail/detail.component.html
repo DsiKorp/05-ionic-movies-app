@@ -74,9 +74,9 @@
       </ion-button>
     </ion-butttons>
     <ion-butttons slot="end">
-      <ion-button color="primary" fill="outline" expand="block" (click)="adFavorite()">
+      <ion-button color="primary" fill="outline" expand="block" (click)="addFavorite()">
         <ion-label>Favorite</ion-label>
-        <ion-icon slot="end" name="star-outline"></ion-icon>
+        <ion-icon slot="end" [name]="star"></ion-icon>
       </ion-button>
     </ion-butttons>
   </ion-toolbar>

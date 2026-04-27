@@ -1,0 +1,17 @@
+<swiper-container
+  direction="horizontal"
+  pager="ios"
+  pagination="true"
+  pagination-bullet-color="white"
+  pagination-bullet-active-color="black"
+  slides-per-view="3.3"
+  free-mode="true"
+  space-between="10">
+
+  <swiper-slide *ngFor="let movie of movies">
+    <ion-card (click)="showDetail(movie.id)">
+      <img [src]="movie.poster_path | imagen" alt="movie.title" class="poster">
+    </ion-card>
+  </swiper-slide>
+
+</swiper-container>
